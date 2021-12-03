@@ -20,7 +20,9 @@ router.post('/auth',(req,res) =>{
 
 router.get("/",(req,res)=>{
     //sendは文字を送って表示
-    res.render("index.ejs")//ファイルを読み込んで表示
+    let data ={}
+    data.title = "トップページ"
+    res.render("index.ejs",data)//受け渡したいデータは第2引数に渡す
 })
 
 router.get("/profile",(req,res)=>{
@@ -31,5 +33,14 @@ router.get("/login",(req,res)=>{
     res.render("login/login.ejs")
 })
 
+router.get("/item/:id",(req,res)=>{
+    const id = req.params.id//プレースホルダ名で取得
+    console.log(id)
+    res.render("item/show.ejs")
+})
 
+router.get("/test/:value",(req,res)=>{
+    const value = req.params.value
+    res.send(value)
+})
 module.exports = router
