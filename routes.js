@@ -26,14 +26,23 @@ router.get("/",(req,res)=>{
 })
 
 router.get("/profile",(req,res)=>{
-    res.render("profile/profile.ejs")
+    let user ={
+        uid:1,
+        name:"yse",
+        birthplace:"横浜",
+        hobby:["旅行", "グルメ","スポーツ"]
+    }
+    let data ={}
+    data.user =user
+    data.title = "プロフィール"
+    res.render("profile/profile.ejs",data)
 })
 
 router.get("/login",(req,res)=>{
     res.render("login/login.ejs")
 })
 
-router.get("/item/:id",(req,res)=>{
+router.get("/item/:id",(req,res)=>{//任意の値を取得
     const id = req.params.id//プレースホルダ名で取得
     console.log(id)
     res.render("item/show.ejs")
@@ -43,4 +52,4 @@ router.get("/test/:value",(req,res)=>{
     const value = req.params.value
     res.send(value)
 })
-module.exports = router
+module.exports = router//機能として読み込ませる際は記述必須

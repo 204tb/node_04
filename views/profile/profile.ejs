@@ -7,18 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>プロフィールページ</h1>
+    <h1><%=title%></h1>
+    
     <table>
         <tr>
             <th>氏名</th>
-            <td>yse</td>
+            <td><%= user.name%></td>
         </tr>
-
         <tr>
-            <th>年齢</th>
-            <td>0</td>
+            <th>出身地</th>
+            <td><%=user.birthplace%></td>
+        </tr>
+        <tr>
+            <th>趣味</th>
+            <% user.hobby.forEach((hobby)=>{ %>
+                <td><%=hobby%></td>
+            <% }) %>
         </tr>
     </table>
+
     <a href="/">トップページへ</a>
 </body>
 </html>
