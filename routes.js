@@ -5,6 +5,7 @@ const item =require("./models/item")
 const default_login_name = process.env.LOGIN_NAME
 const default_password = process.env.PASSWORD
 
+
 router.post('/auth',(req,res) =>{
     let message = "ログイン出来ません"
 
@@ -47,9 +48,11 @@ router.get("/item/:id",(req,res)=>{//任意の値を取得
     const id = req.params.id//プレースホルダ名で取得
     console.log(id)
     console.log(item)
-    const data = item.get_data(id)
+    const data = item.find(id)
+    
     if(data){
         res.render("item/show.ejs",data)
+        console.log("data："+data["name"]+"data:"+data["price"])
     }
 
 })

@@ -4,10 +4,12 @@ exports.values=[
     {id:3,name:"ほうじ茶",price:120}
 ]
 exports.get_data = function(values,id){
-    values.forEach(data => {
-        if(data.id==id){
-            return data
-        }
-    });
+    if(id<=values.length && id>0){
+        return values[id-1];
+    }
+    return ;
 
+}
+exports.find = (id)=>{
+    return this.values.find(value => value.id == id)
 }

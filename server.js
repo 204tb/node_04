@@ -15,6 +15,11 @@ const app = express()
 app.use(express.static(__dirname+'/public'))
 app.use(express.urlencoded({ extended: true}))
 
+//レイアウト設定
+const layouts = require("express-ejs-layouts")
+app.set("layout","layouts/default")
+app.set("view engine","ejs")
+app.use(layouts)
 
 app.use(routes)//読み込んだモジュールを使う
 //テンプレートエンジンを設定
