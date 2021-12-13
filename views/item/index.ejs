@@ -1,0 +1,9 @@
+
+<% items.forEach((item)=>{%>
+
+<ul>
+    <dd><a href="/item/<%= item.id%>">商品名：<%=item.name%></a></dd>
+    <dd><%=item.price%>円</dd>
+</ul>
+
+<%})%>
